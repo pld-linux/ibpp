@@ -2,7 +2,7 @@ Summary:	IBPP - a C++ client interface for Firebird Server & InterBase
 Summary(pl):	IBPP - interfejs klienta w C++ do serwerów baz danych Firebird i InterBase
 Name:		ibpp
 Version:	2.3.5.0
-Release:	1
+Release:	2
 License:	IBPP License (based on Mozilla Public License)
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/ibpp/%{name}-2-3-5-0-src.zip
@@ -86,7 +86,7 @@ Statyczna wersja biblioteki IBPP.
 %build
 %{__make} \
 	CXX="%{__cxx}" \
-	CXXFLAGS="%{rpmcflags} %{?debug:-DDEBUG} -fPIC -Wall -DIBPP_LINUX -DIBPP_GCC -I. -Ifbheaders" \
+	CXXFLAGS="%{rpmcflags} %{?debug:-DDEBUG} -fPIC -Wall -DIBPP_LINUX -DIBPP_GCC -I." \
 	IBPP_GCC=1 \
 	%{?debug:DEBUG=1}
 

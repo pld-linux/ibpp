@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_with	debug	#builds debug version of library
 #
-Summary:	IBPP, a C++ client interface for Firebird Server & InterBase
+Summary:	IBPP - a C++ client interface for Firebird Server & InterBase
 Summary(pl):	IBPP - interfejs klienta w C++ do Firebird Server & Interbase
 Name:		ibpp
 Version:	2.3.5.0
@@ -55,7 +55,7 @@ towrzenie bazy danych, modyfikacja jej struktury, tworzenie kopii
 zapasowych z dzia³aj±cej bazy, administrowanie kontami u¿ytkowników na
 serwerze, itd.
 
-Wiêcej informacji na stronie: %{url}.
+Wiêcej informacji na stronie: %{url} .
 
 %package devel
 Summary:	IBPP library headers

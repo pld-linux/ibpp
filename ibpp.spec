@@ -10,6 +10,7 @@ Source0:	http://dl.sourceforge.net/ibpp/%{name}-2-3-5-0-src.zip
 Patch0:		%{name}-types.patch
 URL:		http://www.ibpp.org/
 BuildRequires:	Firebird-devel
+BuildRequires:	unzip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

@@ -1,9 +1,5 @@
-#
-# Conditional build:
-%bcond_with	debug	#builds debug version of library
-#
 Summary:	IBPP - a C++ client interface for Firebird Server & InterBase
-Summary(pl):	IBPP - interfejs klienta w C++ do Firebird Server & Interbase
+Summary(pl):	IBPP - interfejs klienta w C++ do serwerów baz danych Firebird i InterBase
 Name:		ibpp
 Version:	2.3.5.0
 Release:	1
@@ -14,7 +10,6 @@ Source0:	http://dl.sourceforge.net/ibpp/%{name}-2-3-5-0-src.zip
 URL:		http://www.ibpp.org/
 BuildRequires:	Firebird-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 IBPP, where 'PP' stands for '++', is a C++ client interface for
@@ -37,23 +32,23 @@ More background information on %{url} website.
 
 %description -l pl
 IBPP, gdzie "PP" oznacza "++", jest interfejsem klienta w C++ do
-Firebird Server w wersji 1.0, 1.5 i kolejnych. Dzia³a równie¿ z
-Interbase(r) 6.0, chocia¿ w przysz³o¶ci jest przewidywane wsparcie
-jedynie Firebirda. Jest to biblioteka klas, wolna od jakichkolwiek
-zale¿no¶ci od narzêdzi programistycznych. Nie jest zwi±zana z
-jakimkolwiek narzêdziem "wizualnym" b±d¼ typu "RAD". Zosta³ stworzony
-aby umo¿liwiæ dostêp do Firebirda jakiejkolwiek aplikacji napisanej w
-C++. Takie aplikacje, które u¿ywaj± IBPP mog± byæ bez interfejsu (np.
-obiekty CORBA/COM, inne biblioteki klas i funkcji, procedury
-"dziedzicz±ce" kod). Ale oczywi¶cie mo¿e byæ równie¿ u¿ywany w
-aplikacjach z interfejsem lub ¶rodowiskach RAD. IBPP jest tak naprawdê
-czystym interfejsem dynamicznego SQL do Firebirda. W kilku ³atwych do
-u¿ycia klasach C++ znajdziesz praktycznie wszytko czego potrzebujesz
-aby po³aczyæ siê z baz± danych Firebird i operowaæ na jej danych. IBPP
-oferuje równie¿ dostêp do wiêkszo¶ci zadañ administracyjnych:
-towrzenie bazy danych, modyfikacja jej struktury, tworzenie kopii
-zapasowych z dzia³aj±cej bazy, administrowanie kontami u¿ytkowników na
-serwerze, itd.
+serwera baz danych Firebird w wersji 1.0, 1.5 i kolejnych. Dzia³a
+równie¿ z Interbase(R) 6.0, chocia¿ w przysz³o¶ci jest przewidywane
+wsparcie jedynie Firebirda. Jest to biblioteka klas, wolna od
+jakichkolwiek zale¿no¶ci od narzêdzi programistycznych. Nie jest
+zwi±zana z jakimkolwiek narzêdziem "wizualnym" b±d¼ typu "RAD". Zosta³
+stworzony aby umo¿liwiæ dostêp do Firebirda jakiejkolwiek aplikacji
+napisanej w C++. Takie aplikacje, które u¿ywaj± IBPP mog± byæ bez
+interfejsu (np. obiekty CORBA/COM, inne biblioteki klas i funkcji,
+procedury "dziedzicz±ce" kod). Ale oczywi¶cie mo¿e byæ równie¿ u¿ywany
+w aplikacjach z interfejsem lub ¶rodowiskach RAD. IBPP jest tak
+naprawdê czystym interfejsem dynamicznego SQL do Firebirda. W kilku
+³atwych do u¿ycia klasach C++ mo¿na znale¼æ praktycznie wszystko, co
+jest potrzebne aby po³±czyæ siê z baz± danych Firebird i operowaæ na
+jej danych. IBPP oferuje równie¿ dostêp do wiêkszo¶ci zadañ
+administracyjnych: tworzenie bazy danych, modyfikacja jej struktury,
+tworzenie kopii zapasowych z dzia³aj±cej bazy, administrowanie kontami
+u¿ytkowników na serwerze, itd.
 
 Wiêcej informacji na stronie: %{url} .
 
@@ -87,20 +82,17 @@ Statyczna wersja biblioteki IBPP.
 %setup -q -c %{name}-%{version}
 
 %build
-%if %{with debug}
-%{__make} IBPP_GCC=1 DEBUG=1
-%else
-%{__make} IBPP_GCC=1
-%endif
+%{__make} \
+	IBPP_GCC=1 \
+	%{?debug:DEBUG=1}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir},%{_docdir}/%{name}-%{version}}
-mv -f release/linux/libibpp.so $RPM_BUILD_ROOT%{_libdir}
-mv -f release/linux/libibpp.a $RPM_BUILD_ROOT%{_libdir}
-mv -f ibpp.h $RPM_BUILD_ROOT%{_includedir}
-mv -f *.txt $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
-mv -f tests/tests.cpp $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
+install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir}}
+
+install release/linux/libibpp.so $RPM_BUILD_ROOT%{_libdir}
+install release/linux/libibpp.a $RPM_BUILD_ROOT%{_libdir}
+install ibpp.h $RPM_BUILD_ROOT%{_includedir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -110,8 +102,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc *.txt tests/tests.cpp
 %attr(755,root,root) %{_libdir}/libibpp.so
-%doc %{_docdir}/%{name}-%{version}/*.*
 
 %files devel
 %defattr(644,root,root,755)

@@ -7,6 +7,7 @@ License:	IBPP License (based on Mozilla Public License)
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/ibpp/%{name}-2-3-5-0-src.zip
 # Source0-md5:	f96991555dec3c98216e0d78f31b8586
+Patch0:		%{name}-types.patch
 URL:		http://www.ibpp.org/
 BuildRequires:	Firebird-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -79,10 +80,13 @@ This is package with static IBPP libraries.
 Statyczna wersja biblioteki IBPP.
 
 %prep
-%setup -q -c %{name}-%{version}
+%setup -q -c
+%patch0 -p1
 
 %build
 %{__make} \
+	CXX="%{__cxx}" \
+	CXXFLAGS="%{rpmcflags} %{?debug:-DDEBUG} -fPIC -Wall -DIBPP_LINUX -DIBPP_GCC -I. -Ifbheaders" \
 	IBPP_GCC=1 \
 	%{?debug:DEBUG=1}
 

@@ -3,7 +3,7 @@
 %bcond_with	debug	#builds debug version of library
 #
 Summary:	IBPP, a C++ client interface for Firebird Server & InterBase
-Summary(pl):	IBPP, interfejs klienta w C++ do Firebird Server & Interbase
+Summary(pl):	IBPP - interfejs klienta w C++ do Firebird Server & Interbase
 Name:		ibpp
 Version:	2.3.5.0
 Release:	1
@@ -33,7 +33,7 @@ IBPP also offers access to most of the administrations tasks :
 creating a database, modifying its structure, performing online
 backups, administering user accounts on the server and so on.
 
-More background information on http://www.ibpp.org website.
+More background information on %{url} website.
 
 %description -l pl
 IBPP, gdzie "PP" oznacza "++", jest interfejsem klienta w C++ do
@@ -50,12 +50,12 @@ aplikacjach z interfejsem lub ¶rodowiskach RAD. IBPP jest tak naprawdê
 czystym interfejsem dynamicznego SQL do Firebirda. W kilku ³atwych do
 u¿ycia klasach C++ znajdziesz praktycznie wszytko czego potrzebujesz
 aby po³aczyæ siê z baz± danych Firebird i operowaæ na jej danych. IBPP
-równie¿ oferuje dostêp do wiêkszo¶ci zadañ administracyjnych:
-towrzenie bazy danych, modyfikacja jej struktur, tworzenie kopii
+oferuje równie¿ dostêp do wiêkszo¶ci zadañ administracyjnych:
+towrzenie bazy danych, modyfikacja jej struktury, tworzenie kopii
 zapasowych z dzia³aj±cej bazy, administrowanie kontami u¿ytkowników na
 serwerze, itd.
 
-Wiêcej informacji na stronie: http://www.ibpp.org.
+Wiêcej informacji na stronie: %{url}.
 
 %package devel
 Summary:	IBPP library headers

@@ -1,5 +1,5 @@
 Summary:	IBPP - a C++ client interface for Firebird Server & InterBase
-Summary(pl):	IBPP - interfejs klienta w C++ do serwerów baz danych Firebird i InterBase
+Summary(pl.UTF-8):   IBPP - interfejs klienta w C++ do serwerÃ³w baz danych Firebird i InterBase
 Name:		ibpp
 Version:	2.3.5.0
 Release:	2
@@ -32,31 +32,31 @@ backups, administering user accounts on the server and so on.
 
 More background information on %{url} website.
 
-%description -l pl
+%description -l pl.UTF-8
 IBPP, gdzie "PP" oznacza "++", jest interfejsem klienta w C++ do
-serwera baz danych Firebird w wersji 1.0, 1.5 i kolejnych. Dzia³a
-równie¿ z Interbase(R) 6.0, chocia¿ w przysz³o¶ci jest przewidywane
+serwera baz danych Firebird w wersji 1.0, 1.5 i kolejnych. DziaÅ‚a
+rÃ³wnieÅ¼ z Interbase(R) 6.0, chociaÅ¼ w przyszÅ‚oÅ›ci jest przewidywane
 wsparcie jedynie Firebirda. Jest to biblioteka klas, wolna od
-jakichkolwiek zale¿no¶ci od narzêdzi programistycznych. Nie jest
-zwi±zana z jakimkolwiek narzêdziem "wizualnym" b±d¼ typu "RAD". Zosta³
-stworzony aby umo¿liwiæ dostêp do Firebirda jakiejkolwiek aplikacji
-napisanej w C++. Takie aplikacje, które u¿ywaj± IBPP mog± byæ bez
+jakichkolwiek zaleÅ¼noÅ›ci od narzÄ™dzi programistycznych. Nie jest
+zwiÄ…zana z jakimkolwiek narzÄ™dziem "wizualnym" bÄ…dÅº typu "RAD". ZostaÅ‚
+stworzony aby umoÅ¼liwiÄ‡ dostÄ™p do Firebirda jakiejkolwiek aplikacji
+napisanej w C++. Takie aplikacje, ktÃ³re uÅ¼ywajÄ… IBPP mogÄ… byÄ‡ bez
 interfejsu (np. obiekty CORBA/COM, inne biblioteki klas i funkcji,
-procedury "dziedzicz±ce" kod). Ale oczywi¶cie mo¿e byæ równie¿ u¿ywany
-w aplikacjach z interfejsem lub ¶rodowiskach RAD. IBPP jest tak
-naprawdê czystym interfejsem dynamicznego SQL do Firebirda. W kilku
-³atwych do u¿ycia klasach C++ mo¿na znale¼æ praktycznie wszystko, co
-jest potrzebne aby po³±czyæ siê z baz± danych Firebird i operowaæ na
-jej danych. IBPP oferuje równie¿ dostêp do wiêkszo¶ci zadañ
+procedury "dziedziczÄ…ce" kod). Ale oczywiÅ›cie moÅ¼e byÄ‡ rÃ³wnieÅ¼ uÅ¼ywany
+w aplikacjach z interfejsem lub Å›rodowiskach RAD. IBPP jest tak
+naprawdÄ™ czystym interfejsem dynamicznego SQL do Firebirda. W kilku
+Å‚atwych do uÅ¼ycia klasach C++ moÅ¼na znaleÅºÄ‡ praktycznie wszystko, co
+jest potrzebne aby poÅ‚Ä…czyÄ‡ siÄ™ z bazÄ… danych Firebird i operowaÄ‡ na
+jej danych. IBPP oferuje rÃ³wnieÅ¼ dostÄ™p do wiÄ™kszoÅ›ci zadaÅ„
 administracyjnych: tworzenie bazy danych, modyfikacja jej struktury,
-tworzenie kopii zapasowych z dzia³aj±cej bazy, administrowanie kontami
-u¿ytkowników na serwerze, itd.
+tworzenie kopii zapasowych z dziaÅ‚ajÄ…cej bazy, administrowanie kontami
+uÅ¼ytkownikÃ³w na serwerze, itd.
 
-Wiêcej informacji na stronie: %{url} .
+WiÄ™cej informacji na stronie: %{url} .
 
 %package devel
 Summary:	IBPP library headers
-Summary(pl):	Pliki nag³ówkowe biblioteki IBPP
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki IBPP
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -64,20 +64,20 @@ Requires:	%{name} = %{version}-%{release}
 This is the libraries, include files and other resources you can use
 to incorporate IBPP into applications.
 
-%description devel -l pl
-Pliki nag³ówkowe potrzebne do budowania programów korzystaj±cych z
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe potrzebne do budowania programÃ³w korzystajÄ…cych z
 IBPP.
 
 %package static
 Summary:	IBPP static libraries
-Summary(pl):	Statyczne biblioteki IBPP
+Summary(pl.UTF-8):   Statyczne biblioteki IBPP
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 This is package with static IBPP libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna wersja biblioteki IBPP.
 
 %prep

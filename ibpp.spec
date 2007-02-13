@@ -1,5 +1,5 @@
 Summary:	IBPP - a C++ client interface for Firebird Server & InterBase
-Summary(pl.UTF-8):   IBPP - interfejs klienta w C++ do serwerów baz danych Firebird i InterBase
+Summary(pl.UTF-8):	IBPP - interfejs klienta w C++ do serwerów baz danych Firebird i InterBase
 Name:		ibpp
 Version:	2.3.5.0
 Release:	2
@@ -56,7 +56,7 @@ Więcej informacji na stronie: %{url} .
 
 %package devel
 Summary:	IBPP library headers
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki IBPP
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki IBPP
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -70,7 +70,7 @@ IBPP.
 
 %package static
 Summary:	IBPP static libraries
-Summary(pl.UTF-8):   Statyczne biblioteki IBPP
+Summary(pl.UTF-8):	Statyczne biblioteki IBPP
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 

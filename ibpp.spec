@@ -1,15 +1,20 @@
+%define		sver 2-5-3-1
+%define		ver %(echo %{sver} | tr -s - .)
 Summary:	IBPP - a C++ client interface for Firebird Server & InterBase
 Summary(pl.UTF-8):	IBPP - interfejs klienta w C++ do serwerów baz danych Firebird i InterBase
 Name:		ibpp
-Version:	2.3.5.0
-Release:	2
-License:	IBPP License (based on Mozilla Public License)
+Version:	%{ver}
+Release:	1
+License:	IBPP License v1.1 (based on Mozilla Public License)
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/ibpp/%{name}-2-3-5-0-src.zip
-# Source0-md5:	f96991555dec3c98216e0d78f31b8586
-Patch0:		%{name}-types.patch
+Source0:	http://dl.sourceforge.net/ibpp/%{name}-%{sver}-src.zip
+# Source0-md5:	0fec1e010ad272825cb585cd79e68936
+Patch0:		%{name}-build.patch
 URL:		http://www.ibpp.org/
 BuildRequires:	Firebird-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	unzip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -59,6 +64,7 @@ Summary:	IBPP library headers
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki IBPP
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	Firebird-devel
 
 %description devel
 This is the libraries, include files and other resources you can use
@@ -85,19 +91,22 @@ Statyczna wersja biblioteki IBPP.
 %patch0 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoheader}
+%{__autoconf}
+%{__automake}
+%configure
+
 %{__make} \
 	CXX="%{__cxx}" \
-	CXXFLAGS="%{rpmcflags} %{?debug:-DDEBUG} -fPIC -Wall -DIBPP_LINUX -DIBPP_GCC -I." \
-	IBPP_GCC=1 \
-	%{?debug:DEBUG=1}
+	CXXFLAGS="%{rpmcxxflags} %{?debug:-g -DDEBUG} -fPIC -Wall -DIBPP_LINUX -DIBPP_GCC"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir}}
 
-install release/linux/libibpp.so $RPM_BUILD_ROOT%{_libdir}
-install release/linux/libibpp.a $RPM_BUILD_ROOT%{_libdir}
-install ibpp.h $RPM_BUILD_ROOT%{_includedir}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -108,11 +117,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.txt tests/tests.cpp
-%attr(755,root,root) %{_libdir}/libibpp.so
+%attr(755,root,root) %{_libdir}/libibpp.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libibpp.so.2
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_includedir}/ibpp.h
+%attr(755,root,root) %{_libdir}/libibpp.so
+%{_libdir}/libibpp.la
+%{_includedir}/ibpp.h
 
 %files static
 %defattr(644,root,root,755)

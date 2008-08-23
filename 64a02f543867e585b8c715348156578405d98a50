@@ -1,0 +1,4 @@
+- updated to 2.5.3.1
+- added -build.patch (lt/ac/am support based on packaging/debian.diff)
+- removed -types.patch (outdated)
+- -devel R: Firebird-devel
